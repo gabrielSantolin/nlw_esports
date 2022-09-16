@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section ul {
+    list-style: none;
+    display: flex;
+    gap: 16px; /*deixa um gap entre as propriedades da ul*/
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+body {
+    background-image: url(./Imagens/Fundo.jpg);
+    background-position: top center;
+    background-size: 100% auto; /*O primeiro fala da largura e o segundo da altura*/
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'inter', sans-serif;
+    line-height: 160%;
+}
+
+header {
+    padding-top: 32px;
+    height: calc(120px + 32px);
+}
+
+header div {
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    display: flex;
+    padding: 4px;
+    transition: transform .3s;
+}
+
+header img {
+    width: 100%; /*100% em relação ao header div*/
+    border-radius: 50%;
+}
+
+header div:hover {
+    transform: scale(1.1);
+}
+
+main {
+    max-width: 580px;
+    width: 90%; /*Não vai preencher a tela inteira, apenas 90% dela. Podemos usar isso para definir melhor o tamanho do nosso layout.*/
+    margin: 32px auto; /*O primeiro valor é referente as margens de baixo e de cima da propriedade. O auto é relativo às margens lateriais, ela equipara a laterel direita e esquerda quando automaticamente, não permitindo que uma seja maior que a outra.*/
+    display: grid;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div {
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+section h2 {
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -0.47px;
+}
+
+section p {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+section ul li {
+    transition: transform .3s; /*passa qual propriedade quer transicionar, nesse caso, o transform*/
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+}
+
+.games-list img {
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channel-list img {
+    border-radius: 50%;
+    width: 70px;
+    border: 1px solid #443E54;
+}
+
+/* Animação */
+header div {
+    animation: fromTop .7s .2s backwards; /*Backwards puxa logo no início as propriedades do keyframe*/
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+}
+
+main section:nth-child(1) {
+    animation-delay: 0;
+}
+
+main section:nth-child(2) {
+    animation-delay: .4s;
+}
+
+main section:nth-child(3) {
+    animation-delay: .8s;
+}
+
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0); /*É a posição inicial em que ele se encontra*/
+    }
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /*Também é possível fazer animações no eixo X, apenas mudar na propriedade translate o Y para X*/
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
